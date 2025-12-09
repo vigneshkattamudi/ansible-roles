@@ -13,4 +13,4 @@
 - name: Update packages based on package.json to their latest version.
   community.general.npm:
     path: /app
-    state: latest
+    state: present
