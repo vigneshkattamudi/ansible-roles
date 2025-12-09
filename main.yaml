@@ -1,4 +1,4 @@
-- name: configuring {{ component }} server
+- name: configuring "{{ component }}" server
   become: yes
   hosts: "{{ component }}" #host name should match with name given in inventory file
   roles:
