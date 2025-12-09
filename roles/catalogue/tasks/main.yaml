@@ -4,8 +4,6 @@
     tasks_from: app_setup.yaml
 
 - name: configure nodejs
-  tags:
-  - nodejs
   include_role:
     name: common
     tasks_from: nodejs.yaml
@@ -33,8 +31,6 @@
   when: catalogue_output.stdout | int < 0
 
 - name: configure systemd_setup
-  tags:
-  - reload
   include_role:
     name: common
     tasks_from: systemd_setup.yaml
