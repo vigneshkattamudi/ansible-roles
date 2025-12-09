@@ -24,3 +24,6 @@
   ansible.builtin.service: 
     name: mongod
     state: restarted
+
+#Command to run this play book: 
+#ansible-playbook -i inventory.ini -e ansible_user=ec2-user -e ansible_password=DevOps321 mongodb.yaml
