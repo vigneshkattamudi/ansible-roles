@@ -1,29 +1,26 @@
 - name: copy mongodb repo
-  ansible.builtin.copy: #Search ansible copy module in google to find the modules
+  ansible.builtin.copy:
     src: mongo.repo
     dest: /etc/yum.repos.d/mongo.repo
 
 - name: Install mongodb server
-  ansible.builtin.dnf: #Ansible package module or dnf
+  ansible.builtin.dnf:
     name: mongodb-org
     state: present
 
 - name: start and enable mongodb
-  ansible.builtin.service: #Ansible service module 
+  ansible.builtin.service:
     name: mongod
-    state: started #To start the mongod
-    enabled: yes #To enable the mongod
+    state: started
+    enabled: yes
 
 - name: allow remote connections
-  ansible.builtin.replace: #Ansible replace module
+  ansible.builtin.replace:
     path: /etc/mongod.conf
     regexp: '127.0.0.1'
     replace: '0.0.0.0'
 
 - name: restart mongodb
-  ansible.builtin.service: 
+  ansible.builtin.service:
     name: mongod
     state: restarted
-
-#Command to run this play book: 
-#ansible-playbook -i inventory.ini -e ansible_user=ec2-user -e ansible_password=DevOps321 mongodb.yaml
