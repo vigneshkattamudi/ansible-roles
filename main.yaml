@@ -1,5 +1,5 @@
-- name: configuring "{{ component }}" server
+- name: "configure {{ component }}"
   become: yes
-  hosts: "{{ component }}" #host name should match with name given in inventory file
-  roles:
+  hosts: "{{ component }}"
+  roles: # this will automatically load a folder called roles in current working directory.
   - "{{ component }}"
