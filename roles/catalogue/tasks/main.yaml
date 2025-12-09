@@ -8,11 +8,6 @@
     name: common
     tasks_from: app_setup.yaml
 
-- name: configure systemd_setup
-  include_role:
-    name: common
-    tasks_from: systemd_setup.yaml
-
 - name: copy mongodb repo
   ansible.builtin.copy:
     src: mongo.repo
@@ -34,3 +29,8 @@
 - name: load products
   ansible.builtin.shell: mongosh --host mongodb.dsops84.space < /app/db/master-data.js
   when: catalogue_output.stdout | int < 0
+
+- name: configure systemd_setup
+  include_role:
+    name: common
+    tasks_from: systemd_setup.yaml
