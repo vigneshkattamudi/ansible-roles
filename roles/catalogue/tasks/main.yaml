@@ -33,6 +33,8 @@
   when: catalogue_output.stdout | int < 0
 
 - name: configure systemd_setup
+  tags:
+  - reload
   include_role:
     name: common
     tasks_from: systemd_setup.yaml
