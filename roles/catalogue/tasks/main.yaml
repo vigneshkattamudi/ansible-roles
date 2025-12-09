@@ -37,6 +37,8 @@
   # ignore_unreachable: true
 
 - name: systemd setup
+  tags:
+  - systemd
   include_role:
     name: common
     tasks_from: systemd.yaml
