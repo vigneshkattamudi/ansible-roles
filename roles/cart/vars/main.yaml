@@ -1,1 +1,2 @@
-MONGODB_HOST: mongodb.dsops84.space
+REDIS_HOST: redis.dsops84.space
+CATALOGUE_HOST: catalogue.dsops84.space
