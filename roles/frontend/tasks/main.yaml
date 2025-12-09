@@ -42,8 +42,10 @@
     state: absent
 
 - name: copy roboshop nginx conf
-  ansible.builtin.copy:
-    src: nginx.conf
+  tags:
+  - template
+  ansible.builtin.template:
+    src: nginx.conf.j2
     dest: /etc/nginx/nginx.conf
 
 - name: restart nginx
